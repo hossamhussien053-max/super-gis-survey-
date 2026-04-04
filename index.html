@@ -1332,7 +1332,7 @@ function fbLoad(){
     } else {
       ST.adminPass = d.adminPass || 'admin123';
       ST.sitePass  = d.sitePass  || 'admin123';
-      ST.frozen = (d.frozen === true || d.frozen === "true");
+      ST.frozen = (d.frozen === true) ? true : false;
       ST.name      = d.name      || 'GIS Area Calculator';
       ST.logo      = d.logo      || '';
       ST.wa        = d.wa        || '';
@@ -1340,7 +1340,7 @@ function fbLoad(){
     }
     FB_READY = true;
     applySettings();
-    if(ST.frozen){ document.getElementById('frozenPage').classList.add('show'); return; }
+    if(ST.frozen === true){ document.getElementById('frozenPage').classList.add('show'); return; }
     showPage('homePage');
   }).catch(()=>{
     clearTimeout(fallbackTimer);
