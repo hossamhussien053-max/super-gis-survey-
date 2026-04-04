@@ -1458,7 +1458,7 @@ function closeModal(id){ document.getElementById(id).classList.remove('show'); }
 function checkEnter(){
   const p=document.getElementById('enterPass').value;
   const err=document.getElementById('enterErr');
-  if(p===ST.sitePass){ closeModal('enterOverlay'); showPage('mainApp'); maybeShowOnboarding(); }
+  if(p===ST.sitePass){ closeModal('enterOverlay'); localStorage.setItem('gis_last_page','mainApp'); showPage('mainApp'); maybeShowOnboarding(); }
   else{ err.style.display='block'; document.getElementById('enterPass').value=''; }
 }
 function checkAdmin(){
